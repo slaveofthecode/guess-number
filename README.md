@@ -1,15 +1,27 @@
-# React + TypeScript + Vite
+# Guess Number - [let's go](https://guess-number-123.vercel.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple game in which the user writes a number, and then the other part (the machine) guesses the number. The machine says a number with four digits, and if the digits coincide with your number (the same place and value), the number is correct. However, you must tell the amount the number coincides in place and value.
 
-Currently, two official plugins are available:
+Main features:
+- You can play on mobile as well as on the web.
+- You can open the app on any mobile OS. If your phone is an iPhone, it is convenient to open the app on Safari. If your phone is an Android, you can open the app on Chrome.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Tech
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This app was built with different technologies, practices, and ways to use or apply different features, but always with love :)
+
+Some tech used
+- [vite](https://vite.dev) to create the app
+- [bun](https://bun.sh/) it was used to replace NPM, because of is the fastest and best practice
+- The app is hosted at [vercel](https://vercel.com/). 
+- [Squoosh](https://squoosh.app/) was used to improve the weight of the images, icons, svg, etc.
+
+----
+----
+----
+
+
 
 - Configure the top-level `parserOptions` property like this:
 
