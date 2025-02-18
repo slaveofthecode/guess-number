@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 // import reactLogo from './assets/logo.svg'
 // import viteLogo from '/vite.svg'
 import StartGame from './components/StartGame'
@@ -7,7 +7,7 @@ import './App.css'
 import Playing from './components/Playing'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
