@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/logo.svg'
+// import reactLogo from './assets/logo.svg'
 // import viteLogo from '/vite.svg'
+import StartGame from './components/StartGame'
+
 import './App.css'
+import Playing from './components/Playing'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        {/* <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a> */}
+      {/* <div>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
@@ -31,7 +31,10 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
+
+      <StartGame />
+      <Playing />
     </>
   )
 }
