@@ -7,9 +7,12 @@ function App() {
   
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <h3 className="text-3xl font-bold underline">Logs</h3>
+      <ul>
+        <li>
+          <strong>20250219_2030</strong> : <small>README file was updated</small> 
+        </li>
+      </ul>
       <StartGame />
       <Playing />
     </>
