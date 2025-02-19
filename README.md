@@ -5,21 +5,60 @@ This is a simple game in which the user writes a number, and then the other part
 Main features:
 - You can play on mobile as well as on the web.
 - You can open the app on any mobile OS. If your phone is an iPhone, it is convenient to open the app on Safari. If your phone is an Android, you can open the app on Chrome.
+- In addition, you can installing it on the mobile without use the market, because of is a WPA which the application working similar to a native app.
 
 
 ## Tech
 
-This app was built with different technologies, practices, and ways to use or apply different features, but always with love :)
-
-Some tech used
+Some tech that were used on the built
 - [vite](https://vite.dev) to create the app
 - [bun](https://bun.sh/) it was used to replace NPM, because of is the fastest and best practice
 - The app is hosted at [vercel](https://vercel.com/). 
 - [Squoosh](https://squoosh.app/) was used to improve the weight of the images, icons, svg, etc.
+- [TailwindCss](https://tailwindcss.com/) to styles and components
+----
+----
+----
+
+
+### Create app using [vite](https://vite.dev) & [bun](https://bun.sh/)
+```bash
+bun create vite@latest guess-number --template react-ts
+cd guess-number
+bun install # Important: Install the dependencies after project creation.
+bun run dev
+code . # Open Visual Studio Code
+```
 
 ----
+
+### Install [TailwindCss](https://tailwindcss.com/docs/installation/using-vite) using vite
+
+Terminal
+```bash
+bun add tailwindcss @tailwindcss/vite
+```
+
+vite.config.ts
+```ts
+import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite'; // <--
+export default defineConfig({
+  plugins: [
+    tailwindcss(), // <--
+  ],
+})
+```
+
+index.css
+```css
+@import "tailwindcss";
+```
 ----
-----
+
+<br />
+<br />
+
 
 
 
