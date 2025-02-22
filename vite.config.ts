@@ -11,7 +11,6 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        id: 'guess-number-123.vercel.app/',
         orientation: 'portrait',
         name: 'My Guess Number PWA App',
         short_name: 'guess-number',
@@ -33,7 +32,12 @@ export default defineConfig({
           },
         ],
       },
-      includeAssets: ['favicon.ico', 'robots.txt', 'icons/logo-mobile-192.png', 'icons/logo-mobile-512.png'],
+      includeAssets: [
+        // 'favicon.ico', 
+        // 'robots.txt', 
+        'icons/logo-mobile-192.png', 
+        'icons/logo-mobile-512.png'
+      ],
       workbox: {
         clientsClaim: true,
         skipWaiting: true,
