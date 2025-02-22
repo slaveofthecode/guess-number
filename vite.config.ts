@@ -11,8 +11,11 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
+        id: 'guess-number-123.vercel.app/',
+        orientation: 'portrait',
         name: 'My Guess Number PWA App',
         short_name: 'guess-number',
+        description: 'A simple number guessing game',
         start_url: '/',
         display: 'standalone',
         theme_color: '#000000',
