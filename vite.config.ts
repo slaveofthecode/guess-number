@@ -15,8 +15,8 @@ export default defineConfig({
         short_name: 'guess-number',
         start_url: '/',
         display: 'standalone',
-        background_color: '#000000',
         theme_color: '#ffffff',
+        background_color: '#000000',
         icons: [
           {
             src: '/icon/logo-mobile-192.png',
@@ -30,10 +30,16 @@ export default defineConfig({
           },
         ],
       },
-    })
+      includeAssets: ['favicon.ico', 'robots.txt', 'icon/logo-mobile-192.png', 'icon/logo-mobile-512.png'],
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true,
+      },
+    }),
   ],
-  base: "/", // Ensures Vercel serves the files correctly
+  base: '/',
   build: {
-    outDir: "dist", // Where the production files will be saved
+    outDir: 'dist',
+    emptyOutDir: true, // <-- Esto borra la carpeta dist antes de cada build
   },
-})
+});
