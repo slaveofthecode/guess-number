@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   
   return (
-    <>
+    <div className='bg-slate-700'>
       <h3 className="text-3xl font-bold underline">Logs</h3>
       <ul className='text-xs'>
         <li>
@@ -18,7 +18,7 @@ function App() {
       </ul>
       <StartGame />
       <Playing />
-    </>
+    </div>
   )
 }
 

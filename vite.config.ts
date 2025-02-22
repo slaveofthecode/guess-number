@@ -19,18 +19,18 @@ export default defineConfig({
         background_color: '#000000',
         icons: [
           {
-            src: '/icon/logo-mobile-192.png',
+            src: '/icons/logo-mobile-192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/icon/logo-mobile-512.png',
+            src: '/icons/logo-mobile-512.png',
             sizes: '512x512',
             type: 'image/png',
           },
         ],
       },
-      includeAssets: ['favicon.ico', 'robots.txt', 'icon/logo-mobile-192.png', 'icon/logo-mobile-512.png'],
+      includeAssets: ['favicon.ico', 'robots.txt', 'icons/logo-mobile-192.png', 'icons/logo-mobile-512.png'],
       workbox: {
         clientsClaim: true,
         skipWaiting: true,
@@ -40,6 +40,6 @@ export default defineConfig({
   base: '/',
   build: {
     outDir: 'dist',
-    emptyOutDir: true, // <-- Esto borra la carpeta dist antes de cada build
+    emptyOutDir: true, // This deletes the dist folder before each build
   },
 });
