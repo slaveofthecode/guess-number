@@ -308,5 +308,31 @@ export default [
 
 ---
 
+### [Zustand](https://zustand-demo.pmnd.rs/) : install and setting (don't use 😏)
+
+1. install
+
+```sh
+bun add zustang
+```
+
+2. create file (example)
+
+```tsx
+import { create } from 'zustand';
+
+interface State {
+  name: string;
+  setName: (name: string) => void;
+}
+
+export const usePlayerStore = create<State>((set) => ({
+  name: '',
+  setName: (name) => set({ name }),
+}));
+```
+
+---
+
 <br />
 <br />
