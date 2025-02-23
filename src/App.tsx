@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="bg-slate-700">
+    <div>
       <h3 className="text-3xl font-bold underline">Logs</h3>
       <ul className="text-xs m-2">
         <li className="ms-2 text-start">
