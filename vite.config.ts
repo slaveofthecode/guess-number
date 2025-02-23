@@ -33,8 +33,6 @@ export default defineConfig({
         ],
       },
       includeAssets: [
-        // 'favicon.ico', 
-        // 'robots.txt', 
         'icons/logo-mobile-192.png', 
         'icons/logo-mobile-512.png'
       ],

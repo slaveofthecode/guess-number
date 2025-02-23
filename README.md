@@ -10,12 +10,12 @@ Main features:
 
 ## Tech
 
-Some tech that were used on the built
+Technologies were used 
 - [vite](https://vite.dev) to create the app
-- [bun](https://bun.sh/) it was used to replace NPM, because of is the fastest and best practice
-- The app is hosted at [vercel](https://vercel.com/). 
-- [Squoosh](https://squoosh.app/) was used to improve the weight of the images, icons, svg, etc.
-- [TailwindCss](https://tailwindcss.com/) to styles and components
+- [bun](https://bun.sh/) replaced to the NPM, because of is the fastest and best practice
+- Hosted at [vercel](https://vercel.com/). 
+- [Squoosh](https://squoosh.app/) to improve the weight of the images, icons, svg, etc.
+- [TailwindCss](https://tailwindcss.com/) styling and components
 ----
 ----
 ----
@@ -25,21 +25,21 @@ Some tech that were used on the built
 ```bash
 bun create vite@latest guess-number --template react-ts
 cd guess-number
-bun install # Important: Install the dependencies after project creation.
+bun install
 bun run dev
-code . # Open Visual Studio Code
+code .
 ```
 
 ----
 
 ### Install [TailwindCss](https://tailwindcss.com/docs/installation/using-vite) using vite
 
-Terminal
+1. Terminal
 ```bash
-bun add tailwindcss @tailwindcss/vite
+bun add -d tailwindcss @tailwindcss/vite
 ```
 
-vite.config.ts
+2. vite.config.ts
 ```ts
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite'; // <--
@@ -49,10 +49,36 @@ export default defineConfig({
   ],
 })
 ```
-
-index.css
+3. index.css
 ```css
 @import "tailwindcss";
+```
+4. Initialize config
+```bash
+bun run tailwindcss init
+```
+5. tailwind.config.ts
+```ts
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  darkMode: 'class', // class to activate dark mode
+  theme: {
+    extend: {
+      colors: {
+        background: '#000000',
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
+```
+6. Reset server (some case is needed)
+```bash
+bun vite build
+bun vite preview
 ```
 ----
 ### Convert to a PWA with Service Workers
@@ -74,62 +100,92 @@ const updateSW = registerSW({
     console.log('App is ready to work offline.');
   },
 });
-
+```
+2.1 - If the import isn't knowledge, you can apply the next solution
+`tsconfig.app.json``
+```json
+{
+  "compilerOptions": {
+    // ...
+    "types": ["vite-plugin-pwa/client"] // <--
+    // ...
+  },
+}
 ```
 3 - Update the `vite.config.ts` file to include the vite-plugin-pwa plugin.
 ```ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({
+    tailwindcss(),
+    VitePWA({ // <--
       registerType: 'autoUpdate',
       manifest: {
-        name: 'My PWA App',
-        short_name: 'PWA App',
+        orientation: 'portrait',
+        name: 'My Guess Number PWA App',
+        short_name: 'guess-number',
+        description: 'A simple number guessing game',
         start_url: '/',
         display: 'standalone',
-        background_color: '#ffffff',
         theme_color: '#000000',
+        background_color: '#000000',
         icons: [
           {
-            src: '/icon-192x192.png',
+            src: '/icons/logo-mobile-192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/icon-512x512.png',
+            src: '/icons/logo-mobile-512.png',
             sizes: '512x512',
             type: 'image/png',
           },
         ],
       },
+      includeAssets: [
+        'icons/logo-mobile-192.png', 
+        'icons/logo-mobile-512.png'
+      ],
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true,
+      },
     }),
   ],
+  base: '/',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true, // This deletes the dist folder before each build
+  },
 });
 ```
-4 - Register the service worker: Update your main.tsx or index.tsx file to register the service worker.
+4. Register the service worker.
+`main.tsx` or `index.tsx` .
 ```tsx
 import './sw';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css';
 import App from './App';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>
-);
-
+  </StrictMode>,
+)
 ```
-6 - Add the PWA icons to the public directory:
+6 - Add the PWA icons to the public directory (has to have a relationship with the manifest setting)
 ```
 \ public
-  \ pwa-192x192.png
-  \ pwa-512x512.png
+  \ icons 
+    \ logo-mobile-192.png
+    \ logo-mobile-512.png
 ```
 ----
 
