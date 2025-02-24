@@ -4,7 +4,7 @@ import AttemptHistory from '../AttemptHistory';
 import InputText from '../common/inputs/InputText';
 
 export default function Playing() {
-  const { isGameStarted, setAttempt, numberToGuess } = useGameStore();
+  const { isGameStarted, setAttempt } = useGameStore();
   const [newNumber, setNewNumber] = useState<number | null>(null);
 
   if (!isGameStarted) {
