@@ -9,6 +9,12 @@ export default function StartGame() {
   // eslint-disable-next-line no-undef
   const refInputName = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    if (refInputName.current) {
+      refInputName.current.focus();
+    }
+  }, []);
+
   if (isGameStarted) {
     return null;
   }
@@ -17,10 +23,6 @@ export default function StartGame() {
     setIsGameStarted(true);
     setNumberToGuess();
   };
-
-  useEffect(() => {
-    refInputName?.current?.focus();
-  }, []);
 
   return (
     <div className="flex flex-col p-4 rounded-2xl w-full gap-2 shadow-2xl shadow-black my-4 mx-2">
