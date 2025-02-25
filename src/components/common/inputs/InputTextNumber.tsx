@@ -1,8 +1,4 @@
-import React, {
-  useState,
-  ChangeEventHandler,
-  KeyboardEventHandler,
-} from 'react';
+import { ChangeEventHandler, KeyboardEventHandler } from 'react';
 
 interface Props {
   placeholder: string;
