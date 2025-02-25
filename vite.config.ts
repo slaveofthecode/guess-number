@@ -10,9 +10,9 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true, // Activa el SW en modo desarrollo
-      },
+      // devOptions: {
+      //   enabled: true, // To active the DEV mode
+      // },
       manifest: {
         orientation: 'portrait',
         name: 'My Guess Number PWA App',
@@ -39,14 +39,14 @@ export default defineConfig({
       workbox: {
         clientsClaim: true,
         skipWaiting: true,
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'], // Archivos a cachear
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'], // file to cache
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/.*\/.*$/, // Maneja las solicitudes
-            handler: 'CacheFirst', // Usa cache primero si está disponible
+            urlPattern: /^https:\/\/.*\/.*$/,
+            handler: 'CacheFirst',
             options: {
               cacheName: 'runtime-cache',
-              expiration: { maxEntries: 50, maxAgeSeconds: 86400 }, // 1 día
+              expiration: { maxEntries: 50, maxAgeSeconds: 86400 }, // ona day
             },
           },
         ],

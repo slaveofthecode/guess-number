@@ -3,11 +3,13 @@ import { useGameStore } from '../../store';
 export default function AttemptHistory() {
   const { attempts } = useGameStore();
 
+  const reversedAttempts = [...attempts].reverse(); // Create a reversed copy
+
   return (
     <div>
       <hr />
       {!attempts.length && <small>No guesses yet. Start guessing!</small>}
-      {attempts.map((attempt, index) => (
+      {reversedAttempts.map((attempt, index) => (
         <ul key={index}>
           <li>
             <p>

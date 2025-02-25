@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import { useGameStore } from '../../store';
+import { useGameStore, usePlayerStore } from '../../store';
 import AttemptHistory from '../AttemptHistory';
 import InputText from '../common/inputs/InputText';
+import ExitSVG from '../common/svg/ExitSVG';
 
 export default function Playing() {
-  const { isGameStarted, setAttempt } = useGameStore();
+  const { isGameStarted, setAttempt, resetGame } = useGameStore();
+  const { setName } = usePlayerStore();
+
   const [newNumber, setNewNumber] = useState<number | null>(null);
 
   if (!isGameStarted) {
@@ -16,6 +19,12 @@ export default function Playing() {
       setAttempt(newNumber);
       setNewNumber(null);
     }
+  };
+
+  const existGame = () => {
+    setName('');
+    setNewNumber(null);
+    resetGame();
   };
 
   return (
@@ -37,7 +46,9 @@ export default function Playing() {
           minLength={4}
           value={newNumber?.toString() || ''}
         />
-        <button className="flex-1/2 text-red-500">End Game</button>
+        <button className=" text-red-500" onClick={existGame}>
+          <ExitSVG color="rgba(255,0,0,.5)" />
+        </button>
       </div>
       <button
         onClick={setNewAttempt}

@@ -29,13 +29,10 @@ export const useGameStore = create<GameState>((set, get) => ({
   setAttempt: (number: number) => {
     const state = get();
     const match = calculateMatch(number, state.numberToGuess);
-    console.log('Match', match);
-    console.log('Number', number);
     set((state) => ({ attempts: [...state.attempts, { number, match }] }));
   },
   setNumberToGuess: () => {
     const number = Math.floor(1000 + Math.random() * 9000);
-    console.log('Number to guess-2:', number);
     set({ numberToGuess: number });
   },
   resetGame: () => set(initState),

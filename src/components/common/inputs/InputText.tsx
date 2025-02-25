@@ -8,6 +8,7 @@ interface Props {
   minLength?: number;
   classCss?: string;
   value?: string;
+  ref?: any;
 }
 const InputText = ({
   placeholder,
@@ -17,6 +18,7 @@ const InputText = ({
   minLength,
   classCss,
   value,
+  ref,
 }: Props): JSX.Element => {
   const className = `block w-full px-3 py-2 placeholder-gray-600 border-b-1 border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo my-2 ${classCss}`;
 
@@ -30,6 +32,7 @@ const InputText = ({
       maxLength={maxLength}
       minLength={minLength}
       value={value}
+      ref={ref}
     />
   );
 };
