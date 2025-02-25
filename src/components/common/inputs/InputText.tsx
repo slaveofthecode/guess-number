@@ -9,6 +9,7 @@ interface Props {
   classCss?: string;
   value?: string;
   ref?: any;
+  autoFocus?: boolean;
 }
 const InputText = ({
   placeholder,
@@ -19,6 +20,7 @@ const InputText = ({
   classCss,
   value,
   ref,
+  autoFocus,
 }: Props): JSX.Element => {
   const className = `block w-full px-3 py-2 placeholder-gray-600 border-b-1 border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo my-2 ${classCss}`;
 
@@ -33,6 +35,7 @@ const InputText = ({
       minLength={minLength}
       value={value}
       ref={ref}
+      autoFocus={autoFocus}
     />
   );
 };

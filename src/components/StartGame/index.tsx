@@ -35,6 +35,7 @@ export default function StartGame() {
             setStartGame();
           }
         }}
+        autoFocus={true}
       />
       <button
         onClick={setStartGame}

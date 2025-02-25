@@ -1,22 +1,39 @@
-import { useState } from 'react';
+import { ChangeEvent, useState, KeyboardEvent } from 'react';
 import { useGameStore, usePlayerStore } from '../../store';
 import AttemptHistory from '../AttemptHistory';
-import InputText from '../common/inputs/InputText';
 import ExitSVG from '../common/svg/ExitSVG';
+import InputTextNumber from '../common/inputs/InputTextNumber';
 
 export default function Playing() {
   const { isGameStarted, setAttempt, resetGame } = useGameStore();
   const { setName } = usePlayerStore();
 
-  const [newNumber, setNewNumber] = useState<number | null>(null);
+  const [newNumber, setNewNumber] = useState<string | null>(null);
 
   if (!isGameStarted) {
     return null;
   }
 
+  // eslint-disable-next-line no-undef
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+
+    // Ensure it is a number and has at most 4 digits
+    if (/^\d{0,4}$/.test(newValue)) {
+      setNewNumber(newValue);
+    }
+  };
+
+  // eslint-disable-next-line no-undef
+  const handleKeyup = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && newNumber?.toString().length === 4) {
+      setNewAttempt();
+    }
+  };
+
   const setNewAttempt = () => {
     if (newNumber) {
-      setAttempt(newNumber);
+      setAttempt(parseInt(newNumber));
       setNewNumber(null);
     }
   };
@@ -29,22 +46,14 @@ export default function Playing() {
 
   return (
     <div className="flex flex-col p-4 rounded-2xl w-full gap-2 shadow-2xl shadow-black my-4 mx-2">
-      <small className="text-start">
-        Try to guess the 4-digit number
-        {/* <strong className="text-white"> :: {numberToGuess}</strong> */}
-      </small>
+      <small className="text-start">Try to guess the 4-digit number</small>
       <div className="flex gap-2">
-        <InputText
+        <InputTextNumber
           placeholder="Enter your guess number"
-          onKeyUp={(e) => {
-            if (e.key === 'Enter' && newNumber?.toString().length === 4) {
-              setNewAttempt();
-            }
-          }}
-          onChange={(e) => setNewNumber(e.currentTarget.value)}
-          maxLength={4}
-          minLength={4}
+          onKeyUp={handleKeyup}
+          onChange={handleChange}
           value={newNumber?.toString() || ''}
+          maxLength={4}
         />
         <button className=" text-red-500" onClick={existGame}>
           <ExitSVG color="rgba(255,0,0,.5)" />
