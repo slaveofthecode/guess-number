@@ -336,3 +336,18 @@ export const usePlayerStore = create<State>((set) => ({
 
 <br />
 <br />
+
+> [!NOTE]
+> Test note
+
+> [!TIP]
+> Test tip
+
+> [!IMPORTANT]
+> Test important
+
+> [!WARNING]
+> Test warning
+
+> [!CAUTION]
+> Test caution
