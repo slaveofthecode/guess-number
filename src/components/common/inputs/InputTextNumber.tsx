@@ -8,6 +8,7 @@ interface Props {
   maxLength?: number;
   minLength?: number;
   classCss?: string;
+  ref?: any;
 }
 
 const InputTextNumber = ({
@@ -18,6 +19,7 @@ const InputTextNumber = ({
   minLength,
   maxLength,
   classCss,
+  ref,
 }: Props) => {
   const className = `block w-full px-3 py-2 placeholder-gray-600 border-b-1 border-gray-400 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo my-2 ${classCss}`;
   return (
@@ -34,6 +36,7 @@ const InputTextNumber = ({
         maxLength={maxLength}
         placeholder={placeholder}
         onKeyUp={onKeyUp}
+        ref={ref}
       />
     </div>
   );

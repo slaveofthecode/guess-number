@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, KeyboardEvent } from 'react';
+import { ChangeEvent, useState, KeyboardEvent, useRef } from 'react';
 import { useGameStore, usePlayerStore } from '../../store';
 import AttemptHistory from '../AttemptHistory';
 import ExitSVG from '../common/svg/ExitSVG';
@@ -9,6 +9,9 @@ export default function Playing() {
   const { setName } = usePlayerStore();
 
   const [newNumber, setNewNumber] = useState<string | null>(null);
+
+  // eslint-disable-next-line no-undef
+  const refInputNumber = useRef<HTMLInputElement>(null);
 
   if (!isGameStarted) {
     return null;
@@ -35,6 +38,7 @@ export default function Playing() {
     if (newNumber) {
       setAttempt(parseInt(newNumber));
       setNewNumber(null);
+      refInputNumber.current?.focus();
     }
   };
 
@@ -54,6 +58,7 @@ export default function Playing() {
           onChange={handleChange}
           value={newNumber?.toString() || ''}
           maxLength={4}
+          ref={refInputNumber}
         />
         <button className=" text-red-500" onClick={existGame}>
           <ExitSVG color="rgba(255,0,0,.5)" />
