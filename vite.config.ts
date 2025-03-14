@@ -10,9 +10,6 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      // devOptions: {
-      //   enabled: true, // To active the DEV mode
-      // },
       manifest: {
         orientation: 'portrait',
         name: 'My Guess Number PWA App',
