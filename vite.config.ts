@@ -10,6 +10,8 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
+      srcDir: 'src', // Asegura que Vite copie el SW de esta carpeta
+      filename: 'sw.js', // Usa el service worker personalizado
       manifest: {
         orientation: 'portrait',
         name: 'My Guess Number PWA App',
@@ -36,23 +38,12 @@ export default defineConfig({
       workbox: {
         clientsClaim: true,
         skipWaiting: true,
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'], // file to cache
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/.*\/.*$/,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'runtime-cache',
-              expiration: { maxEntries: 50, maxAgeSeconds: 86400 }, // ona day
-            },
-          },
-        ],
       },
     }),
   ],
   base: '/',
   build: {
     outDir: 'dist',
-    emptyOutDir: true, // This deletes the dist folder before each build
+    emptyOutDir: true,
   },
 });
