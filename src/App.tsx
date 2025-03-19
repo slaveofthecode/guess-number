@@ -1,7 +1,6 @@
-/* eslint-disable no-undef */
 import { useEffect } from 'react';
 import OneSignal from 'react-onesignal';
-import './sw';
+import './__sw';
 
 // Importa tus otros componentes y estilos
 import StartGame from './components/StartGame';
@@ -19,14 +18,9 @@ function App() {
       notifyButton: {
         enable: true,
       },
+      serviceWorkerParam: { scope: '/' },
+      serviceWorkerPath: './sw.ts',
     });
-
-    // Init PWA
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
   }, []);
 
   return (
