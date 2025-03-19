@@ -10,3 +10,9 @@ const updateSW = registerSW({
     console.log('App is ready to work offline.');
   },
 });
+
+const initPWAWorker = () => {
+  updateSW();
+};
+
+export default initPWAWorker;
