@@ -2,7 +2,6 @@
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
-import './__sw';
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker

@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import OneSignal from 'react-onesignal';
-import './__sw';
 
 // Importa tus otros componentes y estilos
 import StartGame from './components/StartGame';
@@ -19,7 +18,7 @@ function App() {
         enable: true,
       },
       serviceWorkerParam: { scope: '/' },
-      serviceWorkerPath: './sw.ts',
+      serviceWorkerPath: './sw.js',
     });
   }, []);
 
