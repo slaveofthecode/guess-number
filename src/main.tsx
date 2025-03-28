@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('/sw.js')
-    .then((reg) => console.log('SW PWA register:', reg))
-    .catch((err) => console.error('Error registrando el SW:', err));
+  // navigator.serviceWorker
+  //   .register('/sw.js')
+  //   .then((reg) => console.log('SW PWA register:', reg))
+  //   .catch((err) => console.error('Error registrando el SW:', err));
 
   navigator.serviceWorker
     .register('/OneSignalSDKWorker.js')
