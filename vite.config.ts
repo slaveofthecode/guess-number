@@ -32,9 +32,17 @@ export default defineConfig({
             sizes: '512x512',
             type: 'image/png',
           },
+          {
+            src: 'logo.svg',
+            type: 'image/svg',
+          },
         ],
       },
-      includeAssets: ['icons/logo-mobile-192.png', 'icons/logo-mobile-512.png'],
+      includeAssets: [
+        'icons/logo-mobile-192.png',
+        'icons/logo-mobile-512.png',
+        'image/svg',
+      ],
       workbox: {
         clientsClaim: true,
         skipWaiting: true,
