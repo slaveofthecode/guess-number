@@ -49,6 +49,15 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@components': '/src/components',
+      '@store': '/src/store',
+      '@svg': '/src/components/common/svg',
+      '@common': '/src/components/common',
+    },
+  },
   base: '/',
   build: {
     outDir: 'dist',

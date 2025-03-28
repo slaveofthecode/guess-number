@@ -1,7 +1,4 @@
-import StartGame from './components/StartGame';
-import Playing from './components/Playing';
-import Header from './components/Header';
-
+import { Header, StartGame, Playing } from '@components';
 import './App.css';
 
 function App() {

@@ -1,5 +1,5 @@
-import LogoSVG from '../common/svg/LogoSVG';
-import { usePlayerStore, useGameStore } from '../../store';
+import { usePlayerStore, useGameStore } from '@store';
+import { LogoSVG } from '@svg';
 
 const index = () => {
   const { name } = usePlayerStore();

@@ -17,7 +17,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "types": ["vite-plugin-pwa/client"]
+    "types": ["vite-plugin-pwa/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components": ["src/components"],
+      "@store": ["src/store"],
+      "@svg": ["src/components/common/svg"],
+      "@common": ["src/components/common"]
+    }
   },
   "include": ["src"]
 }

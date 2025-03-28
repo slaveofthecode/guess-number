@@ -1,4 +1,4 @@
-import { useGameStore } from '../../store';
+import { useGameStore } from '@store';
 
 export default function AttemptHistory() {
   const { attempts } = useGameStore();

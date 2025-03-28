@@ -1,8 +1,8 @@
 import { ChangeEvent, useState, KeyboardEvent, useRef } from 'react';
-import { useGameStore, usePlayerStore } from '../../store';
-import AttemptHistory from '../AttemptHistory';
-import ExitSVG from '../common/svg/ExitSVG';
-import InputTextNumber from '../common/inputs/InputTextNumber';
+import { useGameStore, usePlayerStore } from '@store';
+import { AttemptHistory } from '@components';
+import { ExitSVG } from '@svg';
+import { InputTextNumber } from '@common';
 
 export default function Playing() {
   const { isGameStarted, setAttempt, resetGame } = useGameStore();

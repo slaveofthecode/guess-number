@@ -1,4 +1,6 @@
-import { useGameStore } from './gameStore';
-import { usePlayerStore } from './playerStore';
+// Re-export all store hooks
+export { useGameStore } from './gameStore';
+export { usePlayerStore } from './playerStore';
 
-export { useGameStore, usePlayerStore };
+// If you add more stores in the future, export them here
+// Example: export { useNewStore } from './newStore';
