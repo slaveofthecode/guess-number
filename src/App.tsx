@@ -13,7 +13,7 @@ function App() {
     // Inicializar OneSignal cuando el componente se monta
     OneSignal.init({
       appId: '26b12df5-7d0b-4824-b51e-50ed5471f59f',
-      allowLocalhostAsSecureOrigin: true, // Esto permite pruebas en localhost
+      allowLocalhostAsSecureOrigin: true,
       notifyButton: {
         enable: true,
       },
