@@ -5,19 +5,6 @@ import Header from './components/Header';
 import './App.css';
 
 function App() {
-  // useEffect(() => {
-  //   // Inicializar OneSignal cuando el componente se monta
-  //   OneSignal.init({
-  //     appId: '26b12df5-7d0b-4824-b51e-50ed5471f59f',
-  //     allowLocalhostAsSecureOrigin: true,
-  //     notifyButton: {
-  //     enable: true,
-  //     },
-  //     serviceWorkerParam: { scope: '/' },
-  //     serviceWorkerPath: './sw.js',
-  //   });
-  // }, []);
-
   return (
     <div>
       <Header />

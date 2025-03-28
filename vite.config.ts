@@ -11,7 +11,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       srcDir: 'src', // Asegura que Vite copie el SW de esta carpeta
-      filename: 'sw.js', // Usa el service worker personalizado
+      // filename: 'sw.js', // Usa el service worker personalizado
       manifest: {
         orientation: 'portrait',
         name: 'My Guess Number PWA App',
