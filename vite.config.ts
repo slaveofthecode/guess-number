@@ -10,8 +10,8 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      srcDir: 'src', // Asegura que Vite copie el SW de esta carpeta
-      // filename: 'sw.js', // Usa el service worker personalizado
+      srcDir: 'src',
+      filename: 'sw.js',
       manifest: {
         orientation: 'portrait',
         name: 'My Guess Number PWA App',
