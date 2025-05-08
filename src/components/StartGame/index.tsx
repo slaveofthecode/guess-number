@@ -1,13 +1,15 @@
+/* eslint-disable no-undef */
 import { useEffect, useRef } from 'react';
 import { usePlayerStore, useGameStore } from '../../store';
 import InputText from '../common/inputs/InputText';
+import style from './style.module.css';
 
 export default function StartGame() {
   const { setName, name } = usePlayerStore();
   const { setIsGameStarted, isGameStarted, setNumberToGuess } = useGameStore();
 
-  // eslint-disable-next-line no-undef
   const refInputName = useRef<HTMLInputElement>(null);
+  const refButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (refInputName.current) {
@@ -24,8 +26,14 @@ export default function StartGame() {
     setNumberToGuess();
   };
 
+  function setClassButton(valueInput: string) {
+    if (valueInput.trim()) {
+      refButton.current?.classList.toggle(style.showButtonOutFocus);
+    }
+  }
+
   return (
-    <div className="flex flex-col p-4 rounded-2xl w-full gap-2 shadow-2xl shadow-black my-4 mx-2">
+    <div className="flex p-2 rounded-[8px] w-full relative">
       <InputText
         ref={refInputName}
         placeholder="Enter your name"
@@ -35,14 +43,23 @@ export default function StartGame() {
             setStartGame();
           }
         }}
+        onBlur={(e) => {
+          setClassButton(e.target.value);
+        }}
+        onFocus={(e) => {
+          setClassButton(e.target.value);
+        }}
         autoFocus={true}
+        maxLength={24}
+        classCss={style.inputName}
       />
       <button
+        ref={refButton}
         onClick={setStartGame}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        className={`${!name.length ? 'hidden' : style.showButton} absolute`}
         disabled={!name.length}
       >
-        Start
+        Go!
       </button>
     </div>
   );

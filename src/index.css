@@ -15,6 +15,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  transition: all 0.25s 0s ease-in-out;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -43,24 +47,30 @@ button {
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
   outline: none;
   border: none;
+  font-weight: bold;
 }
-/* button:hover {
-  border-color: #646cff; 
-} */
-/* button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
 
 input {
+  width: 100%;
   outline: none;
+  background: #0005;
+  border-radius: 1rem;
+  padding: 1rem;
+  border-color: #fff5;
+  border-bottom-width: 1px;
+
+  &:focus {
+    box-shadow: inset 1px 4px 16px black;
+    background: #fff;
+    opacity: 0.75;
+    color: #000;
+  }
 }
 
 @media (prefers-color-scheme: light) {

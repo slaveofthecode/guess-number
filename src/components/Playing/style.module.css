@@ -1,0 +1,24 @@
+.buttonExit {
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  font-weight: 300;
+}
+
+.buttonPlay {
+  position: absolute;
+  background: black;
+  height: 64%;
+  opacity: 0.75;
+  right: 4px;
+  top: 13px;
+  border-radius: 1rem;
+}
+
+.buttonPlayOutFocus {
+  background: #fff;
+  color: #000;
+}

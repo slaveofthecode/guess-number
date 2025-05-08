@@ -7,7 +7,7 @@ export default function AttemptHistory() {
 
   return (
     <div>
-      <hr />
+      {/* <hr /> */}
       {!attempts.length && <small>No guesses yet. Start guessing!</small>}
       {reversedAttempts.map((attempt, index) => (
         <ul key={index}>

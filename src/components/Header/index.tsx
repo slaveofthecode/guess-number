@@ -7,7 +7,7 @@ const index = () => {
 
   return (
     <>
-      <header className="relative flex flex-col p-4 rounded-2xl w-full gap-2 shadow-2xl shadow-black my-4 mx-2">
+      <header className="relative flex flex-col p-4 rounded-2xl w-full gap-2 my-4">
         <div className="flex flex-col gap-1 justify-center items-center pb-2">
           <LogoSVG width={72} height={72} />
           <h2 className="text-3xl font-bold text-center">Guess Number</h2>

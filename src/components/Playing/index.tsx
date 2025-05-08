@@ -3,6 +3,7 @@ import { useGameStore, usePlayerStore } from '@store';
 import { AttemptHistory } from '@components';
 import { ExitSVG } from '@svg';
 import { InputTextNumber } from '@common';
+import style from './style.module.css';
 
 export default function Playing() {
   const { isGameStarted, setAttempt, resetGame } = useGameStore();
@@ -49,27 +50,28 @@ export default function Playing() {
   };
 
   return (
-    <div className="flex flex-col p-4 rounded-2xl w-full gap-2 shadow-2xl shadow-black my-4 mx-2">
+    <div className="flex flex-col p-4 rounded-2xl w-full gap-2 my-4 mx-2">
+      <button className={style.buttonExit} onClick={existGame}>
+        x
+      </button>
       <small className="text-start">Try to guess the 4-digit number</small>
-      <div className="flex gap-2">
+      <div className="relative">
         <InputTextNumber
-          placeholder="Enter your guess number"
+          placeholder="Let's go!"
           onKeyUp={handleKeyup}
           onChange={handleChange}
           value={newNumber?.toString() || ''}
           maxLength={4}
           ref={refInputNumber}
         />
-        <button className=" text-red-500" onClick={existGame}>
-          <ExitSVG color="rgba(255,0,0,.5)" />
+        <button
+          onClick={setNewAttempt}
+          disabled={newNumber?.toString().length !== 4}
+          className={style.buttonPlay}
+        >
+          Play
         </button>
       </div>
-      <button
-        onClick={setNewAttempt}
-        disabled={newNumber?.toString().length !== 4}
-      >
-        Try!
-      </button>
       <AttemptHistory />
     </div>
   );
