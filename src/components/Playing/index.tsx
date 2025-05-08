@@ -1,7 +1,6 @@
 import { ChangeEvent, useState, KeyboardEvent, useRef } from 'react';
 import { useGameStore, usePlayerStore } from '@store';
 import { AttemptHistory } from '@components';
-import { ExitSVG } from '@svg';
 import { InputTextNumber } from '@common';
 import style from './style.module.css';
 
