@@ -9,6 +9,7 @@ interface Props {
   placeholder: string;
   onChange?: ChangeEventHandler<any>;
   onKeyUp?: KeyboardEventHandler<any>;
+  onKeyDown?: KeyboardEventHandler<any>;
   onBlur?: FocusEventHandler<any>;
   onFocus?: FocusEventHandler<any>;
   maxLength?: number;
@@ -22,6 +23,7 @@ const InputText = ({
   placeholder,
   onChange,
   onKeyUp,
+  onKeyDown,
   onBlur,
   onFocus,
   maxLength,
@@ -42,6 +44,7 @@ const InputText = ({
       placeholder={placeholder}
       onChange={onChange}
       onKeyUp={onKeyUp}
+      onKeyDown={onKeyDown}
       onBlur={onBlur}
       onFocus={onFocus}
       maxLength={maxLength}

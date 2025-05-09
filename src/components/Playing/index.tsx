@@ -48,6 +48,12 @@ export default function Playing() {
     resetGame();
   };
 
+  function setClassButton(valueInput: string) {
+    if (valueInput.trim()) {
+      refInputNumber.current?.classList.toggle(style.inputNameOutFocus);
+    }
+  }
+
   return (
     <div className="flex flex-col p-4 rounded-2xl w-full gap-2 my-4 mx-2">
       <button className={style.buttonExit} onClick={existGame}>
@@ -57,8 +63,14 @@ export default function Playing() {
       <div className="relative">
         <InputTextNumber
           placeholder="Let's go!"
-          onKeyUp={handleKeyup}
+          onKeyDown={handleKeyup}
           onChange={handleChange}
+          onBlur={(e) => {
+            setClassButton(e.target.value);
+          }}
+          onFocus={(e) => {
+            setClassButton(e.target.value);
+          }}
           value={newNumber?.toString() || ''}
           maxLength={4}
           ref={refInputNumber}
@@ -66,7 +78,7 @@ export default function Playing() {
         <button
           onClick={setNewAttempt}
           disabled={newNumber?.toString().length !== 4}
-          className={style.buttonPlay}
+          className={`${!newNumber?.toString().length ? 'hidden' : style.buttonPlay} absolute`}
         >
           Play
         </button>

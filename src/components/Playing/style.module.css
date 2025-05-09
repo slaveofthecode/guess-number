@@ -11,14 +11,16 @@
 .buttonPlay {
   position: absolute;
   background: black;
-  height: 64%;
+  height: 84%;
   opacity: 0.75;
-  right: 4px;
-  top: 13px;
+  right: 5px;
+  top: 5px;
   border-radius: 1rem;
 }
 
-.buttonPlayOutFocus {
+.inputNameOutFocus {
+  box-shadow: inset 1px 4px 16px black;
   background: #fff;
+  opacity: 0.75;
   color: #000;
 }

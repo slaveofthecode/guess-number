@@ -15,10 +15,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  transition: all 0.25s 0s ease-in-out;
-}
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -64,6 +60,7 @@ input {
   padding: 1rem;
   border-color: #fff5;
   border-bottom-width: 1px;
+  transition: all 0.25s 0s ease-in-out;
 
   &:focus {
     box-shadow: inset 1px 4px 16px black;

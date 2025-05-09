@@ -28,7 +28,7 @@ export default function StartGame() {
 
   function setClassButton(valueInput: string) {
     if (valueInput.trim()) {
-      refButton.current?.classList.toggle(style.showButtonOutFocus);
+      refInputName.current?.classList.toggle(style.inputNameOutFocus);
     }
   }
 
@@ -38,7 +38,7 @@ export default function StartGame() {
         ref={refInputName}
         placeholder="Enter your name"
         onChange={(e) => setName(e.target.value)}
-        onKeyUp={(e) => {
+        onKeyDown={(e) => {
           if (e.key === 'Enter') {
             setStartGame();
           }
