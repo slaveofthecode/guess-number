@@ -24,3 +24,15 @@
   opacity: 0.75;
   color: #000;
 }
+
+.buttonDisabled {
+  display: block;
+  background: black;
+  height: 64%;
+  right: 13px;
+  top: 14px;
+  border-radius: 1rem;
+  opacity: 0.25;
+  pointer-events: none;
+  cursor: not-allowed;
+}

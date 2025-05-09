@@ -71,7 +71,7 @@ export default function Playing() {
         <button
           type="submit"
           disabled={newNumber?.length !== 4}
-          className={`${!newNumber?.length ? 'hidden' : style.buttonPlay} absolute`}
+          className={`${newNumber?.length === 4 ? style.buttonPlay : style.buttonDisabled} absolute`}
         >
           Play
         </button>

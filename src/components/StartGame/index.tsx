@@ -50,7 +50,7 @@ export default function StartGame() {
       />
       <button
         type="submit"
-        className={`${!name.length ? 'hidden' : style.showButton} absolute`}
+        className={`absolute ${name.length ? style.showButton : style.buttonDisabled}`}
         disabled={!name.length}
       >
         Go!
