@@ -9,58 +9,52 @@ export default function StartGame() {
   const { setIsGameStarted, isGameStarted, setNumberToGuess } = useGameStore();
 
   const refInputName = useRef<HTMLInputElement>(null);
-  const refButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (refInputName.current) {
-      refInputName.current.focus();
-    }
+    refInputName.current?.focus();
   }, []);
 
-  if (isGameStarted) {
-    return null;
-  }
+  if (isGameStarted) return null;
 
   const setStartGame = () => {
+    if (!name.trim()) return;
     setIsGameStarted(true);
     setNumberToGuess();
   };
 
-  function setClassButton(valueInput: string) {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStartGame();
+  };
+
+  const setClassButton = (valueInput: string) => {
     if (valueInput.trim()) {
       refInputName.current?.classList.toggle(style.inputNameOutFocus);
     }
-  }
+  };
 
   return (
-    <div className="flex p-2 rounded-[8px] w-full relative">
+    <form
+      onSubmit={handleSubmit}
+      className="flex p-2 rounded-[8px] w-full relative"
+    >
       <InputText
         ref={refInputName}
         placeholder="Enter your name"
         onChange={(e) => setName(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            setStartGame();
-          }
-        }}
-        onBlur={(e) => {
-          setClassButton(e.target.value);
-        }}
-        onFocus={(e) => {
-          setClassButton(e.target.value);
-        }}
-        autoFocus={true}
+        onBlur={(e) => setClassButton(e.target.value)}
+        onFocus={(e) => setClassButton(e.target.value)}
+        autoFocus
         maxLength={24}
         classCss={style.inputName}
       />
       <button
-        ref={refButton}
-        onClick={setStartGame}
+        type="submit"
         className={`${!name.length ? 'hidden' : style.showButton} absolute`}
         disabled={!name.length}
       >
         Go!
       </button>
-    </div>
+    </form>
   );
 }
